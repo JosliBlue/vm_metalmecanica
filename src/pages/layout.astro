@@ -1,5 +1,8 @@
 ---
 import '@/styles/global.css';
+import Header from '@/components/header.astro';
+
+//import { Icon } from 'astro-icon/components';
 
 interface Props {
     title_page: string;
@@ -13,11 +16,14 @@ const { title_page } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/ico_white.ico" />
         <title>{title_page}</title>
-
     </head>
     <body>
-        <slot />
+        <Header />
+        <main>
+            <slot />
+        </main>
     </body>
+    <script is:inline src="./node_modules/preline/dist/index.js"></script>
 </html>

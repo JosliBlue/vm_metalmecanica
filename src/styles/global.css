@@ -1,9 +1,33 @@
 @import 'tailwindcss';
 
-:root, html.dark{
+@import 'preline/variants.css';
+@source "./node_modules/preline/dist/*.js";
+
+:root,
+html {
     color-scheme: dark;
+    --color-principal: #0f0809;
+    --color-secundario: #310303;
+    --color-contraste1: #b51e39;
+    --color-contraste2: #b01e38;
+
+    scroll-behavior: smooth;
 }
 
+.header-scroll {
+    background: linear-gradient(145deg, var(--color-principal), var(--color-secundario), #000000);
+    background-attachment: fixed;
+}
 body {
-    background-color: #0f0809;
+    min-height: 100vh;
+    background: linear-gradient(145deg, var(--color-principal), var(--color-secundario), #000000);
+    background-attachment: fixed;
+}
+
+header ul li:hover {
+    background-color: var(--color-contraste1);
+}
+
+#btn-toTop {
+    background-color: var(--color-contraste1);
 }
