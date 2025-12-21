@@ -19,8 +19,11 @@ const links = [
             <ul class="flex list-none gap-2">
                 {
                     links.map((link) => (
-                        <li class="p-3 rounded-full transition-all duration-200 ease-in-out font-bold">
-                            <a href={link.href} class="no-underline">
+                        <li>
+                            <a
+                                href={link.href}
+                                class="no-underline p-3 rounded-full transition-all duration-200 ease-in-out font-bold"
+                            >
                                 {link.text}
                             </a>
                         </li>

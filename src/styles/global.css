@@ -24,7 +24,7 @@ body {
     background-attachment: fixed;
 }
 
-header ul li:hover {
+header ul li a:hover {
     background-color: var(--color-contraste1);
 }
 
