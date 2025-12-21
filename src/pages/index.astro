@@ -1,31 +1,34 @@
 ---
 import Layout from '@/pages/layout.astro';
 import BotonToTop from '@/components/boton-to-top.astro';
+import Hero from '@/components/hero.astro';
 
 const images = [
-    {
-        src: '/img_carousel/img1.webp',
-        title: 'Precisión y calidad en metal',
-        description:
-            'Trabajos sólidos, bien acabados y pensados para durar, cuidando cada detalle desde el corte hasta el montaje final.',
-    },
-    {
-        src: '/img_carousel/img2.webp',
-        title: 'Servicios a tu medida',
-        description:
-            'Asesoría técnica, planificación y ejecución de proyectos según tus necesidades y el espacio disponible.',
-    },
-    {
-        src: '/img_carousel/img3.webp',
-        title: 'Nuestros productos',
-        description:
-            'Puertas metálicas, rejas de seguridad, ventanales, cerramientos y estructuras especiales para todo tipo de uso.',
-    },
+    '/img_carousel/img1.webp',
+    '/img_carousel/img2.webp',
+    '/img_carousel/img3.webp',
 ];
+
+const titles = [
+    'Precisión y calidad en metal',
+    'Servicios a tu medida',
+    'Nuestros productos',
+];
+
+const descriptions = [
+    'Trabajos sólidos, bien acabados y pensados para durar, cuidando cada detalle desde el corte hasta el montaje final.',
+    'Asesoría técnica, planificación y ejecución de proyectos según tus necesidades y el espacio disponible.',
+    'Puertas metálicas, rejas de seguridad, ventanales, cerramientos y estructuras especiales para todo tipo de uso.',
+];
+
+const randomImage = images[Math.floor(Math.random() * images.length)];
+const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
+
 ---
 
 <Layout title_page="VM Metalmecánica">
     <div id="#"></div>
-
+    <Hero titulo={randomTitle} description={randomDescription} url_img={randomImage} />
     <BotonToTop />
 </Layout>
