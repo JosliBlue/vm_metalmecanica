@@ -11,7 +11,7 @@ const links = [
     class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b-2 border-(--primary)/20"
 >
     <div
-        class="subheader max-w-7xl flex justify-center md:justify-between items-center mx-4 md:m-auto py-2 md:p-4 transition-all duration-300 ease-in-out rounded-full"
+        class="subheader max-w-7xl flex justify-center md:justify-between items-center mx-4 md:m-auto py-2 md:p-4 transition-all duration-300 ease-in-out rounded-full [&.header-scroll-custom-css]:bg-linear-to-br [&.header-scroll-custom-css]:from-(--surface-darker)/80 [&.header-scroll-custom-css]:to-(--surface)/80 [&.header-scroll-custom-css]:backdrop-blur-md"
     >
         <div class="logo flex items-center gap-3">
             <img src="/svg_white.svg" alt="Logo" class="h-12" />
@@ -24,7 +24,7 @@ const links = [
                         <li>
                             <a
                                 href={link.href}
-                                class="no-underline p-3 rounded-full transition-all duration-200 ease-in-out"
+                                class="no-underline p-3 rounded-full transition-all duration-200 ease-in-out hover:bg-(--primary)"
                             >
                                 {link.text}
                             </a>

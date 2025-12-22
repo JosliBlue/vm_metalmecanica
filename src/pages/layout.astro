@@ -19,7 +19,7 @@ const { title_page } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/ico_white.ico" />
         <title>{title_page}</title>
     </head>
-    <body>
+    <body class="bg-linear-to-br from-(--background) via-(--surface) to-(--surface-darker) bg-fixed">
         <Header />
         <main>
             <slot />

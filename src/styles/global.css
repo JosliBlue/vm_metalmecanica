@@ -10,28 +10,3 @@ html {
 
     scroll-behavior: smooth;
 }
-
-.header-scroll-custom-css {
-    background: linear-gradient(
-        145deg,
-        var(--primary),
-        var(--background),
-        var(--background),
-        var(--background),
-        var(--surface)
-    );
-    background-attachment: fixed;
-}
-body {
-    min-height: 100vh;
-    background: linear-gradient(145deg, var(--background), var(--surface), var(--surface-darker));
-    background-attachment: fixed;
-}
-
-header ul li a:hover {
-    background-color: var(--primary);
-}
-
-#btn-toTop {
-    background-color: var(--primary);
-}
