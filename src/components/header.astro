@@ -1,7 +1,7 @@
 ---
 const links = [
-    { href: '#', text: 'Sobre nosotros' },
     { href: '#servicios', text: 'Servicios' },
+    { href: '#about', text: 'Sobre nosotros' },
     { href: '#productos', text: 'Productos' },
     { href: '#contacto', text: 'Contacto' },
 ];
@@ -13,10 +13,10 @@ const links = [
     <div
         class="subheader max-w-7xl flex justify-center md:justify-between items-center mx-4 md:m-auto py-2 md:p-4 transition-all duration-300 ease-in-out rounded-full [&.header-scroll-custom-css]:bg-linear-to-br [&.header-scroll-custom-css]:from-(--surface-darker)/80 [&.header-scroll-custom-css]:to-(--surface)/80 [&.header-scroll-custom-css]:backdrop-blur-md"
     >
-        <div class="logo flex items-center gap-3">
+        <a href="#" class="logo flex items-center gap-3 no-underline">
             <img src="/svg_white.svg" alt="Logo" class="h-12" />
             <span class="text-xl font-bold">VM Metalmecánica</span>
-        </div>
+        </a>
         <nav class="nav hidden md:block">
             <ul class="flex list-none gap-2">
                 {
