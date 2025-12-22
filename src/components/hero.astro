@@ -1,5 +1,27 @@
 ---
-const { titulo, description, url_img } = Astro.props;
+
+const images = [
+    '/img_carousel/img1.webp',
+    '/img_carousel/img2.webp',
+    '/img_carousel/img3.webp',
+];
+
+const titles = [
+    'Precisión y calidad en metal',
+    'Servicios a tu medida',
+    'Nuestros productos',
+];
+
+const descriptions = [
+    'Trabajos sólidos, bien acabados y pensados para durar, cuidando cada detalle desde el corte hasta el montaje final.',
+    'Asesoría técnica, planificación y ejecución de proyectos según tus necesidades y el espacio disponible.',
+    'Puertas metálicas, rejas de seguridad, ventanales, cerramientos y estructuras especiales para todo tipo de uso.',
+];
+
+const randomImage = images[Math.floor(Math.random() * images.length)];
+const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
+
 ---
 
 <div class="w-full flex justify-center p-4 md:p-6 lg:p-8">
@@ -8,18 +30,18 @@ const { titulo, description, url_img } = Astro.props;
     >
         <div
             class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            data-alt={titulo}
-            style={`background-image: url('${url_img}');`}
+            data-alt={randomTitle}
+            style={`background-image: url('${randomImage}');`}
         >
         </div>
         <div class="absolute inset-0 z-10 bg-linear-to-t from-black via-black/60 to-transparent">
         </div>
         <div class="relative z-20 flex flex-col gap-6 max-w-2xl">
             <h1 class="text-white text-4xl md:text-6xl font-black md:leading-20 tracking-tight">
-                {titulo}
+                {randomTitle}
             </h1>
             <p class="text-gray-200 text-base md:text-lg font-normal leading-relaxed max-w-lg">
-                {description}
+                {randomDescription}
             </p>
         </div>
     </div>

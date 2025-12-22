@@ -1,0 +1,52 @@
+---
+import ServiceCard from '@/components/partials/service-card.astro';
+
+const services = [
+    {
+        icon: 'lucide:hammer',
+        title: 'Fabricación de Metal',
+        description:
+            'Soldadura estructural, rejas personalizadas, protecciones de seguridad y reparaciones industriales diseñadas según tus especificaciones.',
+        features: ['Rejas y Cercos Personalizados', 'Reparaciones Estructurales', 'Soldadura MIG y TIG'],
+    },
+    {
+        icon: 'lucide:key',
+        title: 'Servicios de Cerrajería',
+        description:
+            'Apertura de emergencias 24/7, sistemas de llave maestra, instalación de cerraduras de alta seguridad y duplicado de llaves de precisión.',
+        features: ['Apertura de Emergencia 24/7', 'Instalación de Cerraduras Inteligentes', 'Sistemas de Llave Maestra'],
+    },
+    {
+        icon: 'lucide:palette',
+        title: 'Proyectos Personalizados',
+        description:
+            'Trabajo arquitectónico en metal, marcos de muebles a medida y corte CNC especializado para requisitos de diseño únicos.',
+        features: ['Corte CNC de Plasma', 'Muebles Personalizados', 'Escaleras y Barandales'],
+    },
+];
+---
+
+<section
+    class="w-full flex flex-col items-center p-4 md:p-6 lg:p-8"
+    id="servicios"
+>
+    <div class="w-full max-w-7xl flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div class="flex flex-col gap-2">
+                <span class="text-(--primary) font-bold tracking-wider uppercase text-sm">
+                    Nuestra Experiencia
+                </span>
+                <h2 class="text-white text-3xl md:text-4xl font-bold leading-tight">
+                    Servicios Profesionales
+                </h2>
+            </div>
+            <p class="text-gray-400 max-w-md text-sm md:text-base">
+                Soluciones integrales para tus necesidades de seguridad y estructuras en el hogar o
+                negocio.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => <ServiceCard {...service} />)}
+        </div>
+    </div>
+</section>
