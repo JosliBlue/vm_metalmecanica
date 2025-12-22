@@ -1,0 +1,172 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const contactData = {
+    title: 'Visita Nuestro Taller',
+    subtitle: 'Ubicados en el corazón del distrito industrial, listos para atender toda el área metropolitana.',
+    mapImage: '/img_carousel/img1.webp',
+    formTitle: 'Solicita una Cotización',
+    formSubtitle: 'Completa el formulario y te responderemos en menos de 24 horas.',
+};
+
+const contactInfo = [
+    {
+        icon: 'lucide:phone',
+        title: 'Teléfono',
+        info: '+1 (555) 123-4567',
+        extra: 'Emergencias 24/7',
+    },
+    {
+        icon: 'lucide:mail',
+        title: 'Email',
+        info: 'servicio@vmmetalmecanica.com',
+    },
+    {
+        icon: 'lucide:clock',
+        title: 'Horarios',
+        info: 'Lun-Vie: 8am - 6pm',
+        extra: 'Sáb: 9am - 2pm',
+    },
+    {
+        icon: 'lucide:shield-check',
+        title: 'Licencia',
+        info: 'Lic #987654321',
+        extra: 'Con Seguro y Garantía',
+    },
+];
+
+const serviceTypes = [
+    'Soldadura General',
+    'Cerrajería de Emergencia',
+    'Fabricación Personalizada',
+    'Instalación de Seguridad',
+    'Otro',
+];
+---
+
+<section class="w-full bg-(--surface-darker) py-16 md:py-20">
+    <div class="w-full flex flex-col items-center px-4 md:px-6 lg:p-8">
+        <div class="w-full max-w-7xl grid lg:grid-cols-2 gap-12">
+            <!-- Columna izquierda: Info de contacto -->
+            <div class="flex flex-col gap-8">
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-white text-3xl font-bold">
+                        {contactData.title}
+                    </h2>
+                    <p class="text-gray-400">
+                        {contactData.subtitle}
+                    </p>
+                </div>
+
+                <!-- Mapa -->
+                <div class="w-full h-64 bg-gray-800 rounded-2xl overflow-hidden relative group">
+                    <div
+                        class="w-full h-full bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity"
+                        style={`background-image: url('${contactData.mapImage}');`}
+                    >
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div
+                            class="bg-(--primary) text-white px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2"
+                        >
+                            <Icon name="lucide:map-pin" class="size-5" />
+                            Obtener Direcciones
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info de contacto -->
+                <div class="grid sm:grid-cols-2 gap-6">
+                    {
+                        contactInfo.map((item) => (
+                            <div class="flex items-start gap-4">
+                                <div class="bg-(--card-background) p-3 rounded-full text-(--primary)">
+                                    <Icon name={item.icon} class="size-5" />
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold">{item.title}</h4>
+                                    <p class="text-gray-400 text-sm mt-1">{item.info}</p>
+                                    {item.extra && (
+                                        <p class="text-(--primary) text-xs font-bold mt-1">
+                                            {item.extra}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Columna derecha: Formulario -->
+            <div
+                class="bg-(--card-background) p-8 rounded-2xl md:rounded-[2.5rem] border border-(--primary)/30 shadow-2xl"
+            >
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h3 class="text-white text-2xl font-bold">{contactData.formTitle}</h3>
+                        <p class="text-gray-400 text-sm mt-2">
+                            {contactData.formSubtitle}
+                        </p>
+                    </div>
+                    <form class="flex flex-col gap-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider"
+                                >
+                                    Nombre
+                                </label>
+                                <input
+                                    class="w-full h-12 rounded-xl bg-(--background) border border-(--primary)/30 px-4 text-white focus:outline-none focus:border-(--primary) focus:ring-1 focus:ring-(--primary) transition-all placeholder:text-gray-600"
+                                    placeholder="Juan Pérez"
+                                    type="text"
+                                />
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider"
+                                >
+                                    Teléfono
+                                </label>
+                                <input
+                                    class="w-full h-12 rounded-xl bg-(--background) border border-(--primary)/30 px-4 text-white focus:outline-none focus:border-(--primary) focus:ring-1 focus:ring-(--primary) transition-all placeholder:text-gray-600"
+                                    placeholder="(555) 000-0000"
+                                    type="tel"
+                                />
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label
+                                class="text-xs font-bold text-gray-400 uppercase tracking-wider"
+                            >
+                                Tipo de Servicio
+                            </label>
+                            <select
+                                class="w-full h-12 rounded-xl bg-(--background) border border-(--primary)/30 px-4 text-white focus:outline-none focus:border-(--primary) focus:ring-1 focus:ring-(--primary) transition-all"
+                            >
+                                {serviceTypes.map((service) => <option>{service}</option>)}
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label
+                                class="text-xs font-bold text-gray-400 uppercase tracking-wider"
+                            >
+                                Mensaje
+                            </label>
+                            <textarea
+                                class="w-full h-32 rounded-xl bg-(--background) border border-(--primary)/30 p-4 text-white focus:outline-none focus:border-(--primary) focus:ring-1 focus:ring-(--primary) transition-all placeholder:text-gray-600 resize-none"
+                                placeholder="Describe tu proyecto o emergencia..."></textarea>
+                        </div>
+                        <button
+                            class="mt-2 w-full h-12 rounded-full bg-(--primary) text-white font-bold text-base hover:bg-(--primary)/90 transition-colors shadow-lg shadow-(--primary)/20"
+                            type="button"
+                        >
+                            Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

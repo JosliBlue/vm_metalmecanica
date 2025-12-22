@@ -1,0 +1,60 @@
+---
+import ProductCard from '@/components/partials/product-card.astro';
+
+const productsData = {
+    badge: 'Nuestro Catálogo',
+    title: 'Productos en Metal',
+    description: 'Fabricación y diseño de estructuras metálicas para cada necesidad.',
+};
+
+const productCategories = [
+    {
+        icon: 'lucide:door-open',
+        title: 'Puertas Metálicas',
+        items: ['Puertas de seguridad', 'Puertas enrollables', 'Portones automáticos'],
+        image: '/img_carousel/img1.webp',
+    },
+    {
+        icon: 'lucide:shield',
+        title: 'Rejas & Protecciones',
+        items: ['Rejas fijas', 'Rejas expandibles', 'Protecciones para ventanas'],
+        image: '/img_carousel/img2.webp',
+    },
+    {
+        icon: 'lucide:columns',
+        title: 'Estructuras & Cerramientos',
+        items: ['Estructuras metálicas', 'Cerramientos', 'Techos metálicos'],
+        image: '/img_carousel/img3.webp',
+    },
+    {
+        icon: 'lucide:frame',
+        title: 'Ventanales & Marcos',
+        items: ['Ventanas metálicas', 'Marcos estructurales', 'Divisiones de espacios'],
+        image: '/img_carousel/img1.webp',
+    },
+];
+---
+
+<section class="w-full py-16 md:py-20">
+    <div class="w-full flex justify-center px-4 md:px-6 lg:p-8">
+        <div class="w-full max-w-7xl flex flex-col gap-12">
+            <!-- Header -->
+            <div class="flex flex-col items-center text-center gap-4">
+                <span class="text-(--primary) font-bold tracking-wider uppercase text-sm">
+                    {productsData.badge}
+                </span>
+                <h2 class="text-white text-3xl md:text-5xl font-black leading-tight">
+                    {productsData.title}
+                </h2>
+                <p class="text-gray-400 max-w-2xl text-base">
+                    {productsData.description}
+                </p>
+            </div>
+
+            <!-- Grid de categorías -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {productCategories.map((category) => <ProductCard {...category} />)}
+            </div>
+        </div>
+    </div>
+</section>

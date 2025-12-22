@@ -3,12 +3,12 @@ const links = [
     { href: '#services', text: 'Servicios' },
     { href: '#about', text: 'Sobre nosotros' },
     { href: '#products', text: 'Productos' },
-    { href: '#contacts', text: 'Contacto' },
+    { href: '#contact', text: 'Contacto' },
 ];
 ---
 
 <header
-    class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b-2 border-(--primary)/20"
+    class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b-2 border-(--primary)/20 bg-(--surface-darker)"
 >
     <div
         class="subheader max-w-7xl flex justify-center md:justify-between items-center mx-4 md:m-auto py-2 md:p-4 transition-all duration-300 ease-in-out rounded-full [&.header-scroll-custom-css]:bg-(--surface-darker)/80 [&.header-scroll-custom-css]:backdrop-blur-md"
@@ -46,10 +46,12 @@ const links = [
         if (currentScrollY > 50) {
             header?.classList.add('top-2');
             header?.classList.remove('border-b-2');
+            header?.classList.remove('bg-(--surface-darker)');
             subheader?.classList.add('header-scroll-custom-css');
         } else {
             header?.classList.remove('top-2');
             header?.classList.add('border-b-2');
+            header?.classList.add('bg-(--surface-darker)');
             subheader?.classList.remove('header-scroll-custom-css');
         }
 
