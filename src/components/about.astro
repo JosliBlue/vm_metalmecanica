@@ -1,0 +1,97 @@
+---
+
+const aboutData = {
+    badge: 'Acerca de Nosotros',
+    title: 'Forjados en Tradición,\nConstruidos para Seguridad.',
+    description1:
+        'En VM Metalmecánica, combinamos artesanía de la vieja escuela con tecnología moderna. Durante más de dos décadas, hemos sido el socio de confianza para propietarios de viviendas y empresas que requieren estructuras metálicas robustas y sistemas de seguridad inexpugnables.',
+    description2:
+        'Ya sea un portón diseñado a medida que se convierte en la pieza central de tu propiedad o una situación de emergencia a las 3 AM, nuestro equipo de profesionales certificados está listo para brindar excelencia.',
+    images: {
+        main: '/img_carousel/img1.webp',
+        secondary: '/img_carousel/img2.webp',
+        mobile: '/about/about1.webp',
+    },
+};
+
+const stats = [
+    { value: '20+', label: 'Años de Experiencia' },
+    { value: '5k+', label: 'Proyectos Completados' },
+];
+---
+
+<section class="w-full bg-(--surface-darker) py-16 md:py-20">
+    <div class="w-full flex justify-center px-4 md:px-6 lg:px-8">
+        <div class="w-full max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Imágenes decorativas (solo visible en desktop) -->
+            <div class="relative h-125 w-full hidden lg:block">
+                <div
+                    class="absolute top-0 left-0 w-3/4 h-3/4 rounded-2xl md:rounded-[2.5rem] overflow-hidden border-4 border-(--surface) z-10"
+                >
+                    <div
+                        class="w-full h-full bg-cover bg-center"
+                        style={`background-image: url('${aboutData.images.main}');`}
+                    >
+                    </div>
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-2xl md:rounded-[2.5rem] overflow-hidden border-4 border-(--surface) z-20 shadow-2xl"
+                >
+                    <div
+                        class="w-full h-full bg-cover bg-center"
+                        style={`background-image: url('${aboutData.images.secondary}');`}
+                    >
+                    </div>
+                </div>
+                <div
+                    class="absolute -bottom-4 -left-4 size-32 rounded-full border border-(--primary)/20 flex items-center justify-center"
+                >
+                    <div class="size-20 rounded-full bg-(--primary)/20 backdrop-blur-md"></div>
+                </div>
+            </div>
+
+            <!-- Contenido de texto -->
+            <div class="flex flex-col gap-6">
+                <span class="text-(--primary) font-bold tracking-wider uppercase text-sm">
+                    {aboutData.badge}
+                </span>
+                <h2 class="text-white text-3xl md:text-5xl font-black leading-tight">
+                    {
+                        aboutData.title.split('\n').map((line) => (
+                            <>
+                                {line} <br />
+                            </>
+                        ))
+                    }
+                </h2>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    {aboutData.description1}
+                </p>
+                <p class="text-gray-400 text-base leading-relaxed">
+                    {aboutData.description2}
+                </p>
+
+                <!-- Estadísticas -->
+                <div class="grid grid-cols-2 gap-6 mt-4">
+                    {
+                        stats.map((stat) => (
+                            <div class="flex flex-col gap-1 border-l-2 border-(--primary) pl-4">
+                                <span class="text-3xl font-bold text-white">{stat.value}</span>
+                                <span class="text-sm text-gray-500">{stat.label}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Imagen mobile (solo visible en mobile) -->
+            <div class="lg:hidden w-full h-64 rounded-2xl overflow-hidden mt-6">
+                <div
+                    class="w-full h-full bg-cover bg-center"
+                    style={`background-image: url('${aboutData.images.mobile}');`}
+                >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
