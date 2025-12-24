@@ -12,37 +12,46 @@ const { icon, title, items, image } = Astro.props;
 ---
 
 <div
-    class="group relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-(--card-background) border border-(--primary)/30 hover:border-(--primary) transition-all duration-300"
+    class="product-card group relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-(--card-background) border border-gray-800 hover:border-(--primary)/50 transition-all duration-300"
 >
-    <!-- Imagen de fondo -->
-    <div class="absolute inset-0">
+    <!-- Imagen de fondo en móvil -->
+    <div class="absolute inset-0 md:hidden">
+        <img src={image} alt={title} class="w-full h-full object-cover" />
         <div
-            class="w-full h-full bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-500"
-            style={`background-image: url('${image}');`}
+            class="absolute inset-0 bg-linear-to-l from-(--card-background)/85 via-(--card-background)/90 to-(--card-background)/95"
         >
         </div>
-        <div class="absolute inset-0 bg-linear-to-br from-(--card-background) to-transparent"></div>
+    </div>
+
+    <!-- Imagen normal en desktop -->
+    <div class="relative h-48 overflow-hidden hidden md:block">
+        <img
+            src={image}
+            alt={title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"></div>
     </div>
 
     <!-- Contenido -->
-    <div class="relative p-8 flex flex-col gap-6 min-h-80">
-        <div class="flex items-start gap-4">
-            <div
-                class="size-14 rounded-2xl bg-(--primary)/10 flex items-center justify-center text-(--primary) group-hover:bg-(--primary) group-hover:text-white transition-colors duration-300 shrink-0"
-            >
-                <Icon name={icon} class="size-7" />
-            </div>
-            <h3 class="text-white text-2xl font-bold mt-2">
-                {title}
-            </h3>
+    <div class="p-6 space-y-4 relative z-10">
+        <!-- Icono circular con fondo -->
+        <div
+            class="size-12 rounded-full bg-(--primary)/10 flex items-center justify-center text-(--primary) group-hover:bg-(--primary) group-hover:text-white transition-colors duration-300"
+        >
+            <Icon name={icon} class="size-7" />
         </div>
 
-        <ul class="flex flex-col gap-3 mt-auto">
+        <h3 class="text-white text-xl font-bold">
+            {title}
+        </h3>
+
+        <ul class="space-y-2">
             {
                 items.map((item) => (
-                    <li class="flex items-center gap-3 text-gray-300">
-                        <div class="size-2 rounded-full bg-(--primary)" />
-                        <span class="text-base">{item}</span>
+                    <li class="flex items-center gap-2 text-sm text-gray-300">
+                        <Icon name="lucide:check-circle" class="size-4 text-(--primary)" />
+                        <span>{item}</span>
                     </li>
                 ))
             }
