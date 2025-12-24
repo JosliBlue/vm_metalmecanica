@@ -4,11 +4,6 @@ import Header from '@/components/partials/header.astro';
 import Footer from '@/components/partials/footer.astro';
 
 //import { Icon } from 'astro-icon/components';
-
-interface Props {
-    title_page: string;
-}
-const { title_page } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,7 +13,7 @@ const { title_page } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
         <link rel="icon" type="image/svg+xml" href="/ico_white.ico" />
-        <title>{title_page}</title>
+        <title>VM Metalmecánica</title>
     </head>
     <body
         class="bg-linear-to-br from-(--background) via-(--surface) to-(--surface-darker) bg-fixed"
