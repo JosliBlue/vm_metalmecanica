@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const whatsapp_number = '+593993239185';
+---
+
+<!-- WHATSAPP BUTTON -->
+<a
+    id="btn-whatsapp"
+    href={`https://wa.me/${whatsapp_number}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed right-5 z-1000 flex items-center justify-center w-14 h-14 rounded-full bg-green-500 shadow-lg hover:bg-green-600 transition-colors duration-300"
+    aria-label="WhatsApp"
+    style="box-shadow: 0 4px 16px 0 rgba(37, 211, 102, 0.3); bottom: 20px; transition: transform 0.35s cubic-bezier(.4,2,.6,1); left: unset; right: 20px;"
+>
+    <Icon name="ic:outline-whatsapp" class="size-10 text-white" />
+</a>
+
+<!-- TO TOP BUTTON -->
+<a
+    href="#"
+    id="btn-toTop"
+    class="fixed bottom-5 right-5 z-1000 border-none rounded-full cursor-pointer opacity-0 invisible transition-all duration-200 flex items-center justify-center w-14 h-14 group"
+>
+    <div
+        class="absolute inset-0 bg-(--primary) rounded-full group-hover:brightness-50 transition-all duration-200"
+    >
+    </div>
+    <Icon
+        name="fluent:arrow-right-12-filled"
+        class="relative z-10 size-10 p-1 -rotate-90 text-white"
+    />
+</a>
+
+<script>
+    const toTopButton = document.getElementById('btn-toTop');
+    const whatsappButton = document.getElementById('btn-whatsapp');
+
+    function updateButtons() {
+        const currentScrollY = window.scrollY;
+        if (toTopButton && whatsappButton) {
+            // Ambos botones: w-14 h-14 (56px), espacio vertical 12px
+            const buttonHeight = 56;
+            const gap = 12;
+            if (currentScrollY > 75) {
+                toTopButton.classList.remove('opacity-0', 'invisible');
+                toTopButton.classList.add('opacity-100', 'visible');
+                // WhatsApp sube justo encima, perfectamente alineado
+                whatsappButton.style.transform = `translateY(-${buttonHeight + gap}px)`;
+            } else {
+                toTopButton.classList.remove('opacity-100', 'visible');
+                toTopButton.classList.add('opacity-0', 'invisible');
+                // WhatsApp baja a la esquina
+                whatsappButton.style.transform = 'translateY(0)';
+            }
+        }
+    }
+
+    window.addEventListener('scroll', updateButtons);
+</script>
