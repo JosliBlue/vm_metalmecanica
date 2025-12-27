@@ -38,24 +38,20 @@ const productCategories = [
 <section class="w-full py-16 md:py-20">
     <div class="w-full flex justify-center px-4 md:px-6 lg:p-8">
         <div class="w-full max-w-7xl flex flex-col gap-12">
-            <!-- Header -->
-            <div class="flex flex-col gap-4 md:items-center md:text-center md:max-w-3xl md:mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div class="flex flex-col gap-2">
-                    <span
-                        class="text-(--primary) font-bold tracking-wider uppercase text-sm md:font-semibold md:tracking-widest md:text-xs"
-                    >
+                    <span class="text-(--primary) font-bold tracking-wider uppercase text-sm">
                         {productsData.badge}
                     </span>
-                    <h2 class="text-white text-3xl md:text-5xl font-bold leading-tight">
+                    <h2 class="text-white text-3xl md:text-4xl font-bold leading-tight">
                         {productsData.title}
                     </h2>
                 </div>
-                <p class="text-gray-400 text-sm md:text-lg">
+                <p class="text-gray-400 max-w-md text-sm md:text-base">
                     {productsData.description}
                 </p>
             </div>
 
-            <!-- Grid de categorías -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {productCategories.map((category) => <ProductCard {...category} />)}
             </div>
