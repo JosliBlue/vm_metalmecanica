@@ -27,13 +27,10 @@
   <b>Forjados en Tradición, Construidos para Seguridad.</b>
 </p>
 
-<details>
-  <summary style="font-size: 1.50em; font-weight: bold; cursor: pointer;">📸 Ver Capturas de Pantalla</summary>
-  <div align="center">
-    <img src="./public/github_preview/captura_horizontal1.png" width="100%" alt="Vista Previa 1">
-    <img src="./public/github_preview/captura_vertical1.png" width="100%" alt="Vista Previa 2">
-  </div>
-</details>
+<div align="center">
+  <img src="./public/github_preview/captura_horizontal1.png" width="100%" alt="Vista Previa 1">
+  <img src="./public/github_preview/captura_vertical1.png" width="100%" alt="Vista Previa 2">
+</div>
 
 ## ✨ Características
 
