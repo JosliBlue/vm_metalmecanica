@@ -38,7 +38,7 @@
 -   🚀 **Rendimiento Excepcional**: Construido sobre la arquitectura de "Islas" de Astro para una carga rápida.
 -   📱 **Totalmente Responsive**: Adaptado perfectamente para móviles, tablets y escritorio.
 -   🎨 **Componentes Modulares**: Arquitectura basada en componentes reutilizables y limpios.
--   🛠️ **Código Optimizado**: Uso de TypeScript y Tailwind CSS v4 para un desarrollo robusto y ágil.
+-   🛠️ **Código Optimizado**: Uso de Tailwind CSS v4 para un desarrollo robusto y ágil.
 
 <br>
 
