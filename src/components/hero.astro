@@ -1,5 +1,10 @@
 ---
-const images = ['/img_carousel/img1.webp', '/img_carousel/img2.webp', '/img_carousel/img3.webp'];
+import { Image } from 'astro:assets';
+import img1 from '@/assets/img_carousel/img1.webp';
+import img2 from '@/assets/img_carousel/img2.webp';
+import img3 from '@/assets/img_carousel/img3.webp';
+
+const images = [img1, img2, img3];
 
 const titles = ['Precisión y calidad en metal', 'Servicios a tu medida', 'Nuestros productos'];
 
@@ -20,12 +25,14 @@ const randomDescription = descriptions[Math.floor(Math.random() * descriptions.l
     <div
         class="w-full max-w-7xl rounded-2xl md:rounded-[2.5rem] overflow-hidden relative min-h-140 flex flex-col justify-end p-6 md:p-16 group bg-surface-darker"
     >
-        <div
-            class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            data-alt={randomTitle}
-            style={`background-image: url('${randomImage}');`}
-        >
-        </div>
+        <Image
+            src={randomImage}
+            alt={randomTitle}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+        />
         <div class="absolute inset-0 z-10 bg-linear-to-t from-black via-black/60 to-transparent">
         </div>
         <div class="relative z-20 flex flex-col gap-6 max-w-2xl">

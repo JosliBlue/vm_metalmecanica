@@ -1,4 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import mainImg from '@/assets/img_carousel/img1.webp';
+import secondaryImg from '@/assets/img_carousel/img2.webp';
+import mobileImg from '@/assets/about/about1.webp';
+
 const aboutData = {
     badge: 'Acerca de Nosotros',
     title: 'Forjados en Tradición,\nConstruidos para Seguridad.',
@@ -7,9 +12,9 @@ const aboutData = {
     description2:
         'Ya sea un portón diseñado a medida que se convierte en la pieza central de tu propiedad o una situación de emergencia a las 3 AM, nuestro equipo de profesionales certificados está listo para brindar excelencia.',
     images: {
-        main: '/img_carousel/img1.webp',
-        secondary: '/img_carousel/img2.webp',
-        mobile: '/about/about1.webp',
+        main: mainImg,
+        secondary: secondaryImg,
+        mobile: mobileImg,
     },
 };
 
@@ -27,20 +32,24 @@ const stats = [
                 <div
                     class="absolute top-0 left-0 w-3/4 h-3/4 rounded-2xl md:rounded-[2.5rem] overflow-hidden border-4 border-(--surface) z-10"
                 >
-                    <div
-                        class="w-full h-full bg-cover bg-center"
-                        style={`background-image: url('${aboutData.images.main}');`}
-                    >
-                    </div>
+                    <Image
+                        src={aboutData.images.main}
+                        alt="Sobre nosotros imagen principal"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover object-center"
+                    />
                 </div>
                 <div
                     class="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-2xl md:rounded-[2.5rem] overflow-hidden border-4 border-(--surface) z-20 shadow-2xl"
                 >
-                    <div
-                        class="w-full h-full bg-cover bg-center"
-                        style={`background-image: url('${aboutData.images.secondary}');`}
-                    >
-                    </div>
+                    <Image
+                        src={aboutData.images.secondary}
+                        alt="Sobre nosotros imagen secundaria"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover object-center"
+                    />
                 </div>
                 <div
                     class="absolute -bottom-4 -left-4 size-32 rounded-full border border-(--primary)/20 flex items-center justify-center"
@@ -89,11 +98,13 @@ const stats = [
 
             <!-- Imagen mobile (solo visible en mobile) -->
             <div class="lg:hidden w-full h-64 rounded-2xl overflow-hidden mt-6">
-                <div
-                    class="w-full h-full bg-cover bg-center"
-                    style={`background-image: url('${aboutData.images.mobile}');`}
-                >
-                </div>
+                <Image
+                    src={aboutData.images.mobile}
+                    alt="Sobre nosotros"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover object-center"
+                />
             </div>
         </div>
     </div>
