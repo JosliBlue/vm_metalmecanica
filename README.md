@@ -51,8 +51,7 @@ vm_metalmecanica/
 ├── public/          # Assets estáticos (imágenes, favicons)
 └── src/
     ├── components/  # Bloques de construcción UI (Hero, About, etc.)
-    ├── layouts/     # Estructuras base de página
-    ├── pages/       # Rutas y vistas
+    ├── pages/       # Rutas/vistas
     └── styles/      # Estilos CSS globales
 ```
 
