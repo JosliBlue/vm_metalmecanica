@@ -28,8 +28,9 @@
 </p>
 
 <div align="center">
-  <img src="./public/github_preview/captura_horizontal1.png" width="90%" alt="Vista Previa 1" style="border-radius: 10px; margin: 5px;">
-  <img src="./public/github_preview/captura_vertical1.png" width="90%" alt="Vista Previa 2" style="border-radius: 10px; margin: 5px;">
+  <img src="./public/github_preview/captura_horizontal1.png" width="100%" alt="Vista Previa 1">
+  <br>
+  <img src="./public/github_preview/captura_vertical1.png" width="100%" alt="Vista Previa 2">
 </div>
 
 ## ✨ Características
