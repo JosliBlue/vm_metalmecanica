@@ -1,16 +1,7 @@
 ---
+const images = ['/img_carousel/img1.webp', '/img_carousel/img2.webp', '/img_carousel/img3.webp'];
 
-const images = [
-    '/img_carousel/img1.webp',
-    '/img_carousel/img2.webp',
-    '/img_carousel/img3.webp',
-];
-
-const titles = [
-    'Precisión y calidad en metal',
-    'Servicios a tu medida',
-    'Nuestros productos',
-];
+const titles = ['Precisión y calidad en metal', 'Servicios a tu medida', 'Nuestros productos'];
 
 const descriptions = [
     'Trabajos sólidos, bien acabados y pensados para durar, cuidando cada detalle desde el corte hasta el montaje final.',
@@ -21,10 +12,11 @@ const descriptions = [
 const randomImage = images[Math.floor(Math.random() * images.length)];
 const randomTitle = titles[Math.floor(Math.random() * titles.length)];
 const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
-
 ---
 
-<div class="w-full flex justify-center pb-0 pl-4 pt-4 pr-4 md:pl-6 md:pt-6 md:pr-6 lg:pl-8 lg:pt-8 lg:pr-8">
+<div
+    class="w-full flex justify-center pb-0 pl-4 pt-4 pr-4 md:pl-6 md:pt-6 md:pr-6 lg:pl-8 lg:pt-8 lg:pr-8"
+>
     <div
         class="w-full max-w-7xl rounded-2xl md:rounded-[2.5rem] overflow-hidden relative min-h-140 flex flex-col justify-end p-6 md:p-16 group bg-surface-darker"
     >
