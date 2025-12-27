@@ -4,44 +4,89 @@ import img1 from '@/assets/img_carousel/img1.webp';
 import img2 from '@/assets/img_carousel/img2.webp';
 import img3 from '@/assets/img_carousel/img3.webp';
 
-const images = [img1, img2, img3];
-
-const titles = ['Precisión y calidad en metal', 'Servicios a tu medida', 'Nuestros productos'];
-
-const descriptions = [
-    'Trabajos sólidos, bien acabados y pensados para durar, cuidando cada detalle desde el corte hasta el montaje final.',
-    'Asesoría técnica, planificación y ejecución de proyectos según tus necesidades y el espacio disponible.',
-    'Puertas metálicas, rejas de seguridad, ventanales, cerramientos y estructuras especiales para todo tipo de uso.',
+const slides = [
+    {
+        image: img1,
+        title: 'Precisión y calidad en metal',
+        description:
+            'Trabajos sólidos, bien acabados y pensados para durar, cuidando cada detalle desde el corte hasta el montaje final.',
+    },
+    {
+        image: img2,
+        title: 'Servicios a tu medida',
+        description:
+            'Asesoría técnica, planificación y ejecución de proyectos según tus necesidades y el espacio disponible.',
+    },
+    {
+        image: img3,
+        title: 'Nuestros productos',
+        description:
+            'Puertas metálicas, rejas de seguridad, ventanales, cerramientos y estructuras especiales para todo tipo de uso.',
+    },
 ];
-
-const randomImage = images[Math.floor(Math.random() * images.length)];
-const randomTitle = titles[Math.floor(Math.random() * titles.length)];
-const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
 ---
 
 <div
     class="w-full flex justify-center pb-0 pl-4 pt-4 pr-4 md:pl-6 md:pt-6 md:pr-6 lg:pl-8 lg:pt-8 lg:pr-8"
 >
+    <!-- Container -->
     <div
-        class="w-full max-w-7xl rounded-2xl md:rounded-[2.5rem] overflow-hidden relative min-h-140 flex flex-col justify-end p-6 md:p-16 group bg-surface-darker"
+        class="w-full max-w-7xl rounded-2xl md:rounded-[2.5rem] overflow-hidden relative min-h-140 group bg-surface-darker"
+        id="hero-carousel"
     >
-        <Image
-            src={randomImage}
-            alt={randomTitle}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-        />
-        <div class="absolute inset-0 z-10 bg-linear-to-t from-black via-black/60 to-transparent">
-        </div>
-        <div class="relative z-20 flex flex-col gap-6 max-w-2xl">
-            <h1 class="text-white text-5xl md:text-6xl font-black md:leading-20 tracking-tight">
-                {randomTitle}
-            </h1>
-            <p class="text-gray-200 text-lg md:text-lg font-normal leading-relaxed max-w-lg">
-                {randomDescription}
-            </p>
-        </div>
+        {
+            slides.map((slide, index) => (
+                <div
+                    class:list={[
+                        'absolute inset-0 transition-opacity duration-1000 ease-in-out',
+                        index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0',
+                    ]}
+                    data-slide
+                >
+                    <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        fetchpriority={index === 0 ? 'high' : 'auto'}
+                        class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 z-10 bg-linear-to-t from-black via-black/60 to-transparent" />
+                    <div class="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-16">
+                        <div class="flex flex-col gap-6 max-w-2xl">
+                            <h1 class="text-white text-5xl md:text-6xl font-black md:leading-20 tracking-tight">
+                                {slide.title}
+                            </h1>
+                            <p class="text-gray-200 text-lg md:text-lg font-normal leading-relaxed max-w-lg">
+                                {slide.description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
     </div>
 </div>
+
+<script>
+    const slides = document.querySelectorAll('[data-slide]');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    const intervalTime = 5000;
+
+    function nextSlide() {
+        // Hide current
+        slides[currentSlide].classList.remove('opacity-100', 'z-10');
+        slides[currentSlide].classList.add('opacity-0', 'z-0');
+
+        // Update index
+        currentSlide = (currentSlide + 1) % totalSlides;
+
+        // Show next
+        slides[currentSlide].classList.remove('opacity-0', 'z-0');
+        slides[currentSlide].classList.add('opacity-100', 'z-10');
+    }
+
+    if (totalSlides > 1) {
+        setInterval(nextSlide, intervalTime);
+    }
+</script>
