@@ -20,14 +20,14 @@ const { icon, title, description, features } = Astro.props;
         >
             <Icon name={icon} class="size-7" />
         </div>
-        <h3 class="text-white text-xl font-bold">{title}</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">
+        <h3 class="text-white text-2xl md:text-xl font-bold">{title}</h3>
+        <p class="text-gray-400 text-base md:text-sm leading-relaxed">
             {description}
         </p>
         <ul class="flex flex-col gap-2 mt-2">
             {
                 features.map((feature) => (
-                    <li class="flex items-center gap-2 text-sm text-gray-300">
+                    <li class="flex items-center gap-2 text-base md:text-sm text-gray-300">
                         <Icon name="lucide:check-circle" class="size-4 text-(--primary)" />
                         {feature}
                     </li>
