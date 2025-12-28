@@ -11,7 +11,7 @@ const links = [
     class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b-2 border-(--primary)/20 bg-(--surface-darker)"
 >
     <div
-        class="subheader max-w-7xl flex justify-center md:justify-between items-center mx-4 md:m-auto py-2 md:p-4 transition-all duration-300 ease-in-out rounded-full [&.header-scroll-custom-css]:bg-(--surface-darker)/80 [&.header-scroll-custom-css]:backdrop-blur-md"
+        class="subheader max-w-7xl flex justify-center md:justify-between items-center mx-4 md:m-auto py-2 md:p-4 rounded-full [&.header-scroll-custom-css]:bg-(--surface-darker)/80 [&.header-scroll-custom-css]:backdrop-blur-md"
     >
         <a href="#" class="logo flex items-center gap-3 no-underline">
             <img src="/svg_white.svg" alt="Logo" class="h-12" />
@@ -44,15 +44,15 @@ const links = [
         const currentScrollY = window.scrollY;
 
         if (currentScrollY > 50) {
-            header?.classList.add('top-2');
-            header?.classList.remove('border-b-2');
             header?.classList.remove('bg-(--surface-darker)');
+            header?.classList.remove('border-b-2');
             subheader?.classList.add('header-scroll-custom-css');
+            header?.classList.add('top-2');
         } else {
-            header?.classList.remove('top-2');
-            header?.classList.add('border-b-2');
             header?.classList.add('bg-(--surface-darker)');
+            header?.classList.add('border-b-2');
             subheader?.classList.remove('header-scroll-custom-css');
+            header?.classList.remove('top-2');
         }
 
         lastScrollY = currentScrollY;
