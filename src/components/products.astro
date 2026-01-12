@@ -1,8 +1,9 @@
 ---
 import ProductCard from '@/components/partials/product-card.astro';
-import img1 from '@/assets/img_carousel/img1.webp';
-import img2 from '@/assets/img_carousel/img2.webp';
-import img3 from '@/assets/img_carousel/img3.webp';
+import img1 from '@/assets/products/puerta.webp';
+import img2 from '@/assets/products/reja.webp';
+import img3 from '@/assets/products/estructura.webp';
+import img4 from '@/assets/products/ventana.webp';
 
 const productsData = {
     badge: 'Nuestro Catálogo',
@@ -13,27 +14,27 @@ const productsData = {
 const productCategories = [
     {
         icon: 'lucide:door-open',
-        title: 'Puertas Metálicas',
-        items: ['Puertas de seguridad', 'Puertas enrollables', 'Portones automáticos'],
+        title: 'Puertas',
+        items: ['Puertas metálicas','Puertas mixtas(madera-metal)'],
         image: img1,
     },
     {
         icon: 'lucide:shield',
-        title: 'Rejas & Protecciones',
-        items: ['Rejas fijas', 'Rejas expandibles', 'Protecciones para ventanas'],
+        title: 'Rejas',
+        items: ['Rejas fijas','Protección para ventanas y puertas'],
         image: img2,
     },
     {
         icon: 'lucide:columns',
-        title: 'Estructuras & Cerramientos',
+        title: 'Estructuras',
         items: ['Estructuras metálicas', 'Cerramientos', 'Techos metálicos'],
         image: img3,
     },
     {
         icon: 'lucide:frame',
         title: 'Ventanales & Marcos',
-        items: ['Ventanas metálicas', 'Marcos estructurales', 'Divisiones de espacios'],
-        image: img1,
+        items: ['Ventanas metálicas', 'Marcos estructurales'],
+        image: img4,
     },
 ];
 ---

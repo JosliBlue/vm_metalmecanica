@@ -14,7 +14,7 @@ const { icon, title, items, image } = Astro.props;
 ---
 
 <div
-    class="product-card group relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-(--card-background) border border-gray-800 hover:border-(--primary)/50 transition-all duration-300"
+    class="product-card group relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-(--card-background) border border-(--card-background) hover:border-(--primary)/50 transition-all duration-300"
 >
     <!-- Imagen de fondo en móvil -->
     <div class="absolute inset-0 md:hidden">
@@ -32,7 +32,7 @@ const { icon, title, items, image } = Astro.props;
     </div>
 
     <!-- Imagen normal en desktop -->
-    <div class="relative h-48 overflow-hidden hidden md:block">
+    <div class="relative h-80 overflow-hidden hidden md:block">
         <Image
             src={image}
             alt={title}
@@ -40,19 +40,33 @@ const { icon, title, items, image } = Astro.props;
             decoding="async"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"></div>
+        <!-- Capa de opacidad al hacer hover -->
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent group-hover:bg-black/70 transition-colors duration-300"></div>
+        
+        <!-- Título e icono centrados (ocultos por defecto, visibles en hover) -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="flex items-center gap-3">
+                <div class="size-12 rounded-full bg-(--primary) flex items-center justify-center text-white">
+                    <Icon name={icon} class="size-7" />
+                </div>
+                <h3 class="text-white text-2xl font-bold">
+                    {title}
+                </h3>
+            </div>
+        </div>
     </div>
 
     <!-- Contenido -->
     <div class="p-6 space-y-4 relative z-10">
-        <!-- Icono circular con fondo -->
+        <!-- Icono circular con fondo (solo móvil) -->
         <div
-            class="size-12 rounded-full bg-(--primary)/10 flex items-center justify-center text-(--primary) group-hover:bg-(--primary) group-hover:text-white transition-colors duration-300"
+            class="size-12 rounded-full bg-(--primary)/10 flex items-center justify-center text-(--primary) md:hidden"
         >
             <Icon name={icon} class="size-7" />
         </div>
 
-        <h3 class="text-white text-2xl md:text-xl font-bold">
+        <!-- Título (solo móvil) -->
+        <h3 class="text-white text-2xl font-bold md:hidden">
             {title}
         </h3>
 

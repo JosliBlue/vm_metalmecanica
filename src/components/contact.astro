@@ -3,8 +3,6 @@ import { Icon } from 'astro-icon/components';
 
 const contactData = {
     title: 'Visita Nuestro Taller',
-    subtitle:
-        'Ubicados en el corazón del distrito industrial, listos para atender toda el área metropolitana.',
     mapImage: '/img_carousel/img1.webp',
     formTitle: 'Solicita una Cotización',
     formSubtitle: 'Completa el formulario y te responderemos en menos de 24 horas.',
@@ -12,28 +10,29 @@ const contactData = {
 
 const contactInfo = [
     {
-        icon: 'lucide:phone',
-        title: 'Teléfono',
-        info: '+1 (555) 123-4567',
-        extra: 'Emergencias 24/7',
+        icon: 'lucide:map-pin',
+        title: 'Ubicación',
+        info: 'Huachi La Magdalena',
+        extra: 'Ambato - Tungurahua',
     },
     {
-        icon: 'lucide:mail',
-        title: 'Email',
-        info: 'servicio@vmmetalmecanica.com',
+        icon: 'ic:outline-whatsapp',
+        title: 'Contacto',
+        info: '099 323 9185',
+        extra: 'Le contactaremos pronto',
+    },
+    {
+        icon: 'famicons:share-social-sharp',
+        title: 'Redes Sociales',
+        info: 'vm_metalmecanica',
+        extra: 'Síguenos',
     },
     {
         icon: 'lucide:clock',
         title: 'Horarios',
-        info: 'Lun-Vie: 8am - 6pm',
-        extra: 'Sáb: 9am - 2pm',
-    },
-    {
-        icon: 'lucide:shield-check',
-        title: 'Licencia',
-        info: 'Lic #987654321',
-        extra: 'Con Seguro y Garantía',
-    },
+        info: 'Lun-Vie: 7am - 5pm',
+        extra: 'Sáb: 8am - 12pm',
+    }
 ];
 ---
 
@@ -44,9 +43,7 @@ const contactInfo = [
                 <h2 class="text-white text-4xl md:text-4xl font-bold mb-4">
                     {contactData.title}
                 </h2>
-                <p class="text-gray-400 text-base md:text-base">
-                    {contactData.subtitle}
-                </p>
+               
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
@@ -74,9 +71,20 @@ const contactInfo = [
                                     <h4 class="text-white text-lg md:text-base font-bold mb-1">
                                         {item.title}
                                     </h4>
-                                    <p class="text-gray-400 text-base md:text-sm mt-1">
-                                        {item.info}
-                                    </p>
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-gray-400 text-base md:text-sm mt-1">
+                                            {item.info}
+                                        </p>
+                                        {(item.title === 'Contacto' || item.title === 'Redes Sociales') && (
+                                            <button
+                                                class="copy-btn text-gray-500 hover:text-(--primary) transition-colors cursor-pointer mt-1"
+                                                data-copy={item.info}
+                                                title="Copiar"
+                                            >
+                                                <Icon name="lucide:copy" class="size-4" />
+                                            </button>
+                                        )}
+                                    </div>
                                     {item.extra && (
                                         <p class="text-(--primary) text-sm md:text-xs font-bold mt-1">
                                             {item.extra}
@@ -91,3 +99,28 @@ const contactInfo = [
         </div>
     </div>
 </section>
+
+<script>
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+            const text = btn.getAttribute('data-copy');
+            if (text) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    const icon = btn.querySelector('svg');
+                    const originalHTML = btn.innerHTML;
+                    
+                    // Cambiar a ícono de check temporalmente
+                    btn.innerHTML = '<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                    }, 2000);
+                } catch (err) {
+                    console.error('Error al copiar:', err);
+                }
+            }
+        });
+    });
+</script>
+
