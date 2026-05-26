@@ -9,14 +9,4 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Añade tus demás páginas manualmente aquí abajo, siguiendo la misma estructura -->
-  <!-- 
-  <url>
-    <loc>https://www.vm-metalmecanica.com/nosotros</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url> 
-  -->
-
 </urlset>
